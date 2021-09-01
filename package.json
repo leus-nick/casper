@@ -1,0 +1,35 @@
+{
+  "name": "casper",
+  "version": "1.0.0",
+  "description": "App for tutoring center",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leus-nick/casper.git"
+  },
+  "keywords": [
+    "tutoring",
+    "react",
+    "express",
+    "mern",
+    "node",
+    "javascript"
+  ],
+  "author": "nick<leusniko@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leus-nick/casper/issues"
+  },
+  "homepage": "https://github.com/leus-nick/casper#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2"
+  }
+}
