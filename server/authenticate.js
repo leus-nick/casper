@@ -7,19 +7,22 @@ exports.COOKIE_OPTIONS = {
   httpOnly: true,
   secure: !dev,
   signed: true,
-  maxAge: 60 * 60 * 24 * 30,
+  // eslint-disable-next-line no-eval
+  maxAge: eval(process.env.REFRESH_TOKEN_EXPIRY) * 1000,
   sameSite: 'none',
 };
 
 exports.getToken = (user) => {
   return jwt.sign(user, process.env.JWT_SECRET, {
-    expiresIn: process.env.SESSION_EXPIRY,
+    // eslint-disable-next-line no-eval
+    expiresIn: eval(process.env.SESSION_EXPIRY),
   });
 };
 
 exports.getRefreshToken = (user) => {
   return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {
-    expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
+    // eslint-disable-next-line no-eval
+    expiresIn: eval(process.env.REFRESH_TOKEN_EXPIRY),
   });
 };
 

@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 const whitelist = process.env.WHITELISTED_DOMAINS ? process.env.WHITELISTED_DOMAINS.split(',') : [];
-
+console.log(whitelist);
 const corsOptions = {
   origin(origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {
