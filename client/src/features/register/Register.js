@@ -1,16 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-export default function App() {
+const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const token = localStorage.getItem('token');
 
   const onSubmit = (data, e) => {
-    console.log(data);
+    axios
+      .post('http://localhost:8081/users/signup', data)
+      .then(async (res) => {
+        localStorage.setItem('token', res.data.token);
+        document.location.reload();
+      })
+      .catch((err) => console.log(err));
     e.target.reset();
   };
 
@@ -56,6 +64,9 @@ export default function App() {
         <input type='submit' />
       </form>
       <Link to='/login'>Already have an account?</Link>
+      {token && <h2>{token}</h2>}
     </div>
   );
-}
+};
+
+export default Register;
