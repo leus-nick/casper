@@ -1,17 +1,15 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Button, Col, Form, Input, Row } from 'antd';
+import Loading from '../loading/Loading';
+import styles from '../login/login.module.css';
 
 const Register = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const token = localStorage.getItem('token');
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = (data, e) => {
+    setLoading(true);
     axios
       .post('http://localhost:8081/users/signup', data)
       .then(async (res) => {
@@ -22,49 +20,109 @@ const Register = () => {
     e.target.reset();
   };
 
-  return (
-    <div className='register'>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor='userFirstName'>
-          Your first name
-          <input id='userFirstName' {...register('firstName', { required: true })} />
-          {errors.firstName && <span>Please, enter your first name.</span>}
-        </label>
+  return loading ? (
+    <Loading />
+  ) : (
+    <div className={styles.login}>
+      <Form
+        className={styles.form}
+        name='basic'
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onSubmit}
+        autoComplete='off'
+      >
+        <Form.Item
+          label='First Name'
+          name='firstName'
+          rules={[
+            {
+              required: true,
+              message: 'Please input your first name!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <label htmlFor='userLastName'>
-          Your last name
-          <input id='userLastName' {...register('lastName', { required: true })} />
-          {errors.lastName && <span>Please, enter your last name.</span>}
-        </label>
+        <Form.Item
+          label='Last Name'
+          name='lastName'
+          rules={[
+            {
+              required: true,
+              message: 'Please input your last name!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <label htmlFor='userPhone'>
-          Your phone
-          <input id='userPhone' {...register('phone', { required: true })} />
-          {errors.phone && <span>Please, enter your phone.</span>}
-        </label>
+        <Form.Item
+          label='Phone'
+          name='phone'
+          rules={[
+            {
+              required: true,
+              message: 'Please input your phone!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <label htmlFor='userEmail'>
-          Your email
-          <input id='userEmail' {...register('email', { required: true })} />
-          {errors.email && <span>Please, enter your email.</span>}
-        </label>
+        <Form.Item
+          label='Email'
+          name='email'
+          rules={[
+            {
+              required: true,
+              message: 'Please input your email!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <label htmlFor='userPassword'>
-          Your password
-          <input id='userPassword' {...register('password', { required: true })} />
-          {errors.password && <span>Please, enter your password.</span>}
-        </label>
+        <Form.Item
+          label='Password'
+          name='password'
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!',
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
 
-        <label htmlFor='userConfirmedPassword'>
-          Confirm your password
-          <input id='userConfirmedPassword' {...register('confirmedPassword', { required: true })} />
-          {errors.confirmedPassword && <span>Please, confirm your password.</span>}
-        </label>
-
-        <input type='submit' />
-      </form>
-      <Link to='/login'>Already have an account?</Link>
-      {token && <h2>{token}</h2>}
+        <Form.Item
+          className={styles.formControls}
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Row justify='space-between' align='middle'>
+            <Col span={6}>
+              <Button type='primary' htmlType='submit'>
+                Submit
+              </Button>
+            </Col>
+            <Col span={15}>
+              Already have an account? <Link to='/login'>Login!</Link>
+            </Col>
+          </Row>
+        </Form.Item>
+      </Form>
     </div>
   );
 };

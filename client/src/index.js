@@ -5,6 +5,7 @@ import store from './app/store';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import './remedy.css';
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <Provider store={store}>
