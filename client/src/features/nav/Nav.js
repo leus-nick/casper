@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import axios from 'axios';
-import styles from './casper.module.css';
+import styles from './nav.module.css';
 
 const Nav = () => {
   const token = localStorage.getItem('token');
