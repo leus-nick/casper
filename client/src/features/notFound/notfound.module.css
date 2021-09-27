@@ -1,0 +1,20 @@
+.notFound {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.notFound__title {
+    font-size: 96px;
+    font-weight: bold;
+}
+.notFound__subtitle {
+    font-size: 36px;
+    font-weight: bold;
+}
+.notFound__link {
+    font-size: 24px;
+    font-weight: bold;
+}

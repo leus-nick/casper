@@ -114,11 +114,11 @@ const Register = () => {
           <Row justify='space-between' align='middle'>
             <Col span={6}>
               <Button type='primary' htmlType='submit'>
-                Submit
+                Register
               </Button>
             </Col>
-            <Col span={15}>
-              Already have an account? <Link to='/login'>Login!</Link>
+            <Col span={15} align='end'>
+              Already have an account? <Link to='/login'>Login</Link>
             </Col>
           </Row>
         </Form.Item>

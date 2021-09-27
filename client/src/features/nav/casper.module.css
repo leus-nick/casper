@@ -1,0 +1,51 @@
+.navWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+}
+
+.logo {
+    width: 100px;
+    min-height: 50px;
+    background-image: url('Casper.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    min-width: 500px;
+}
+
+.nav ul li a {
+    color: #000000;
+}
+
+.alignedItem button {
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin-left: 5px;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 2px;
+    transform: rotate(45deg);
+}
+
+.button {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}

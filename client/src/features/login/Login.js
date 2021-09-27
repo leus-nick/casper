@@ -74,11 +74,11 @@ const Login = () => {
           <Row justify='space-between' align='middle'>
             <Col span={6}>
               <Button type='primary' htmlType='submit'>
-                Submit
+                Login
               </Button>
             </Col>
-            <Col span={17}>
-              Don&apos;t have an account? <Link to='/register'>Register now!</Link>
+            <Col span={17} align='end'>
+              Don&apos;t have an account? <Link to='/register'>Register now</Link>
             </Col>
           </Row>
         </Form.Item>
